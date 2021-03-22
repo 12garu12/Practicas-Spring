@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}"></title>
+</head>
+<body>
+
+<h2 th:text="${title}"></h2>
+
+<form th:action="@{/controller/form}" th:object="${cliente}" method="post">
+    <div>
+        <label for="name">First name: </label>
+        <div>
+            <input type="text" id="name" th:field="*{name}">
+        </div>
+        <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+    </div>
+    <br>
+    <div>
+        <input type="submit" value="Enviar">
+    </div>
+</form>
+
+</body>
+</html>

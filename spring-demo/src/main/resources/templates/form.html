@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}"></title>
+</head>
+<body>
+<h1 th:text="${title}"></h1>
+<form th:action="@{/form}" th:object="${user}" method="post">
+    <div>
+        <label for="firstname">First name: </label>
+        <div>
+            <input type="text" id="firstname" th:field="*{firstname}">
+        </div>
+        <div th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}" style="color: red"></div>
+    </div>
+    <br><!--firstname-->
+    <div>
+        <label for="password">Password: </label>
+        <div>
+            <input type="password" id="password" th:field="*{password}">
+        </div>
+        <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}" style="color: red"></div>
+    </div>
+    <br><!--Password-->
+    <div>
+        <label for="email">Email: </label>
+        <div>
+            <input type="text" id="email" th:field="*{email}">
+        </div>
+        <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style="color: red"></div>
+    </div>
+    <br><!--Email-->
+    <div>
+        <label for="birthDay">Birthday: </label>
+        <div>
+            <input type="text" id="birthDay" th:field="*{birthDay}">
+        </div>
+        <div th:if="${#fields.hasErrors('birthDay')}" th:errors="*{birthDay}" style="color: red"></div>
+    </div>
+    <br><!-- birthDay -->
+    <div>
+        <label for="pais">Country:</label>
+        <div>
+            <select id="pais" th:field="*{pais}">
+                <option value="">-- Seleccionar --</option>
+                <option th:each="country: ${countries.entrySet()}" th:text="${country.value}"
+                        th:value="${country.key}"></option>
+            </select>
+        </div>
+        <div th:if="${#fields.hasErrors('pais')}" th:errors="*{pais}" style="color: red"></div>
+    </div>
+    <br><!--Country-->
+    <div>
+        <label for="numero">Number: </label>
+        <div>
+            <input type="text" id="numero" th:field="*{numero}">
+        </div>
+        <div th:if="${#fields.hasErrors('numero')}" th:errors="*{numero}" style="color: red"></div>
+    </div>
+    <br><!-- numero -->
+
+
+    <div>
+        <input type="submit" value="Enviar">
+    </div><!-- Boton enviar-->
+</form>
+
+
+</body>
+</html>

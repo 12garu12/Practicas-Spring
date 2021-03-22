@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}"></title>
+</head>
+<body>
+
+<h1 th:text="${title}"
+    style="background-color: indigo; color: white; height: 48px; width: 400px;"></h1>
+
+<form th:action="@{/form}" th:object="${customer}" method="post">
+    <div>
+        <label for="firstname">First name: </label>
+        <div>
+            <input type="text" id="firstname" th:field="*{firstname}">
+        </div>
+        <div th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"
+             style="background-color: indigo; color: white; height: 30px; width: 400px;"></div>
+    </div>
+    <br> <!--First name-->
+
+    <div>
+        <label for="password">Password: </label>
+        <div>
+            <input type="password" id="password" th:field="*{password}">
+        </div>
+        <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
+             style="background-color: indigo; color: white; height: 30px; width: 400px;"></div>
+    </div>
+    <br> <!-- Password -->
+
+    <div>
+        <label for="birthday">Birthday: </label>
+        <div>
+            <input type="date" id="birthday" th:field="*{birthday}">
+        </div>
+        <div th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}"
+             style="background-color: indigo; color: white; height: 30px; width: 500px;"></div>
+    </div>
+    <br> <!-- Birthday -->
+
+    <div>
+        <input type="submit" value="Enviar"
+               style="background-color: indigo; color: white; height: 30px; width: 200px;">
+    </div> <!-- Button -->
+
+</form>
+
+
+</body>
+</html>

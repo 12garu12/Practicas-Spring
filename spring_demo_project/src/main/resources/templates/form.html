@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}"></title>
+</head>
+<body>
+
+<h1 th:text="${title}"></h1>
+
+<form th:action="@{/form}" th:object="${user}" method="post">
+    <div>
+        <label for="firstname">First name:</label>
+        <div>
+            <input type="text" id="firstname" th:field="*{firstname}">
+        </div>
+        <div th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"
+             style="background-color:rgba(255, 99, 71, 0.5); color: white; width: 500px; height: 27px;"></div>
+    </div>
+    <br><!-- Firstname-->
+
+    <div>
+        <label for="password">Password:</label>
+        <div>
+            <input type="password" id="password" th:field="*{password}">
+        </div>
+        <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
+             style="background-color:rgba(255, 99, 71, 0.5); color: white; width: 500px; height: 27px"></div>
+    </div>
+    <br><!-- Password -->
+
+    <div>
+        <label for="email">Email:</label>
+        <div>
+            <input type="text" id="email" th:field="*{email}">
+        </div>
+        <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+             style="background-color:rgba(255, 99, 71, 0.5); color: white; width: 500px; height: 27px"></div>
+    </div>
+    <br><!-- Email -->
+
+    <div>
+        <label for="age">Age:</label>
+        <div>
+            <input type="text" id="age" th:field="*{age}">
+        </div>
+        <div th:if="${#fields.hasErrors('age')}" th:errors="*{age}"
+             style="background-color:rgba(255, 99, 71, 0.5); color: white; width: 500px; height: auto"></div>
+    </div>
+    <br><!-- Age -->
+
+    <div>
+        <label for="birthday">Birthday:</label>
+        <div>
+            <input type="text" id="birthday" th:field="*{birthday}">
+        </div>
+        <div th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}"
+             style="background-color:rgba(255, 99, 71, 0.5); color: white; width: 500px; height: auto"></div>
+    </div>
+    <br><!-- Birthday -->
+
+    <div>
+        <label for="country.codigo">Country:</label>
+        <div>
+            <select id="country.codigo" th:field="*{country.codigo}">
+                <option value=""> -- Seleccione --</option>
+                <option th:each="country: ${Countries}" th:text="${country.name}" th:value="${country.codigo}"></option>
+            </select>
+        </div>
+        <div th:if="${#fields.hasErrors('country.codigo')}" th:errors="*{country.codigo}"
+             style="background-color:rgba(255, 99, 71, 0.5); color: white; width: 500px; height: auto"></div>
+    </div>
+    <br><!--Country-->
+
+    <div>
+        <input type="submit" value="Enviar" style="background-color: blue; color: white; height: 32px; width: 170px;">
+    </div>
+    <br><!-- Button submit-->
+</form>
+
+</body>
+</html>

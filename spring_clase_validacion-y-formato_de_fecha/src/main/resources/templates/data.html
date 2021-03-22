@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}"></title>
+</head>
+<body>
+
+<h1 th:text="${title}"
+    style="background-color: indigo; color: white; height: 48px; width: 400px;"></h1>
+
+<ul>
+    <li th:text="${customer.firstname}"></li>
+    <br>
+    <li th:text="${customer.password}"></li>
+    <br>
+    <li th:text="${#dates.format(customer.birthday, 'dd/MM/yyyy')}"></li>
+    <br>
+
+
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${titulo}">Title</title>
+</head>
+<body>
+
+<h3 th:text="${titulo}"></h3>
+
+<form th:action="@{/form}" th:object="${usuario}" method="post">
+    <div>
+        <label for="firstname">First name: </label>
+        <div>
+            <input type="text" id="firstname" th:field="*{firstname}">
+        </div>
+        <div th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"></div>
+    </div>
+    <div>
+        <label for="lastname">Last name: </label>
+        <div>
+            <input type="text" id="lastname" th:field="*{lastname}">
+        </div>
+        <div th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></div>
+    </div>
+    <div>
+        <label for="email">Email: </label>
+        <div>
+            <input type="text" id="email" th:field="*{email}">
+        </div>
+        <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+    </div>
+    <div>
+        <label for="password">Password: </label>
+        <div>
+            <input type="password" id="password" th:field="*{password}">
+        </div>
+        <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+    </div>
+
+    <div>
+        <input type="submit" value="Enviar"> <!-- Boton para el envio de los datos del formulario -->
+    </div>
+</form>
+
+</body>
+</html>

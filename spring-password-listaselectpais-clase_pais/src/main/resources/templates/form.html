@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}"></title>
+</head>
+<body>
+<h1 th:text="${title}" style="background-color: cornflowerblue; color: black; height: auto; width: 300px"></h1>
+
+<form th:action="@{/form}" th:object="${user}" method="post">
+
+    <div>
+        <label for="password">Password:</label>
+        <div>
+            <input type="password" id="password" th:field="*{password}">
+        </div>
+        <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}" style="background-color: cornflowerblue;
+                    color: white; font-family: 'Comic Sans MS'; height: auto; width: 300px;"></div>
+    </div>
+    <br> <!-- PASSWORD-->
+
+    <div>
+        <label for="fechaNacimiento">Fecha de nacimiento:</label>
+        <div>
+            <input type="date" id="fechaNacimiento" th:field="*{fechaNacimiento}">
+        </div>
+        <div th:if="${#fields.hasErrors('fechaNacimiento')}" th:errors="*{fechaNacimiento}"
+             style="background-color: cornflowerblue; color: white; font-family: 'Comic Sans MS'; height: auto; width: 300px;"></div>
+    </div>
+    <br> <!-- PASSWORD-->
+
+
+    <div>
+        <input type="submit" value="Enviar"
+               style="background-color: cornflowerblue; color: black; height: 2rem; width: 8rem">
+    </div> <!-- BUTTON -->
+
+</form>
+
+</body>
+</html>

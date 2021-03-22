@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/data-jpa" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/spring-boot-di" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/spring-boot-di/spring-boot-form" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/spring-boot-web" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/web-spring" vcs="Git" />
+  </component>
+</project>

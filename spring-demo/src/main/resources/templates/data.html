@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}"></title>
+</head>
+<body>
+<h1 th:text="${title}"></h1>
+
+<ol>
+    <li th:text="${user.firstname}"></li>
+    <li th:text="${user.password}"></li>
+    <li th:text="${user.email}"></li>
+    <li th:text="${#dates.format(user.birthDay, 'dd/MM/yyyy')}"></li>
+    <li th:text="${user.pais}"></li>
+    <li th:text="${user.numero}"></li>
+</ol>
+
+</body>
+</html>

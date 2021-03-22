@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}"></title>
+</head>
+<body>
+
+<h1 th:text="${title}"></h1>
+<ul>
+    <li th:text="${user.firstname}" style="color: blue"></li>
+    <br>
+    <li th:text="${user.password}" style="color: blue"></li>
+    <br>
+    <li th:text="${user.email}" style="color: blue"></li>
+    <br>
+    <li th:text="${user.age}" style="color: blue"></li>
+    <br>
+    <li th:text="${#dates.format(user.birthday, 'dd/MM/yyyy')}" style="color: blue;"></li>
+    <br>
+    <li th:text="${user.country.codigo}" style="color: blue"></li>
+    <br>
+
+
+</ul>
+
+</body>
+</html>
